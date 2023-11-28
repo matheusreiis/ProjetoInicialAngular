@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,14 +9,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './title.component.scss'
 })
 
-export class TitleComponent implements OnInit{
+export class TitleComponent implements OnInit, OnChanges{
 
-  public title:string = "Bem vindo";
+  @Input() public title:string = "Bem vindo";
 
   constructor() { }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { }
+  
+  ngOnChanges(): void {
+    console.log("Foi alterado com sucesso.");
   }
 
 }
